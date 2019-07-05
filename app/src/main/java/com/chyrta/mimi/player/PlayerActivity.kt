@@ -5,13 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.media.session.PlaybackStateCompat
 import android.text.format.DateUtils
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.chyrta.mimi.R
 import dm.audiostreamer.AudioStreamingManager
-import dm.audiostreamer.AudioStreamingService
 import dm.audiostreamer.CurrentSessionCallback
 import dm.audiostreamer.MediaMetaData
 import org.koin.android.ext.android.inject

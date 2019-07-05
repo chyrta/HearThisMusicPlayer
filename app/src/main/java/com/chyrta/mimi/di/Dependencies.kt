@@ -17,7 +17,6 @@ import dm.audiostreamer.AudioStreamingManager
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
-import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -29,7 +28,7 @@ val schedulerProviders = module {
 }
 
 val playerModule = module {
-    single { AudioStreamingManager.getInstance(androidApplication())}
+    single { AudioStreamingManager.getInstance(androidApplication()) }
 }
 
 val artistsModule = module {
