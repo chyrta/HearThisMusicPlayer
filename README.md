@@ -5,9 +5,9 @@ An extremely simple player of popular tracks from HearThisAt, utilizing Model-Vi
 ## Screenshots
 
 <p>
-  <img src="art/screenshot1.png" width="33%">
-  <img src="art/screenshot2.png" width="33%">
-  <img src="art/screenshot3.png" width="33%">
+  <img src="art/screenshot1.png" width="25%">
+  <img src="art/screenshot2.png" width="25%">
+  <img src="art/screenshot3.png" width="25%">
 </p>
 
 
