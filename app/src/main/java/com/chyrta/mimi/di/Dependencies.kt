@@ -7,13 +7,17 @@ import com.chyrta.mimi.artists.ArtistsActionProcessorHolder
 import com.chyrta.mimi.artists.ArtistsAdapter
 import com.chyrta.mimi.artists.ArtistsViewModel
 import com.chyrta.mimi.data.MimiRepository
+import com.chyrta.mimi.data.MimiRepositoryImpl
 import com.chyrta.mimi.data.remote.MimiService
 import com.chyrta.mimi.util.schedulers.BaseSchedulerProvider
 import com.chyrta.mimi.util.schedulers.SchedulerProvider
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import dm.audiostreamer.AudioStreamingManager
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -22,6 +26,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 val schedulerProviders = module {
     single<BaseSchedulerProvider> { SchedulerProvider }
+}
+
+val playerModule = module {
+    single { AudioStreamingManager.getInstance(androidApplication())}
 }
 
 val artistsModule = module {
@@ -45,7 +53,7 @@ val networkModule = module {
 }
 
 val repositoryModule = module {
-    single { MimiRepository(get()) }
+    single<MimiRepository> { MimiRepositoryImpl(get()) }
 }
 
 fun provideMoshi(): Moshi {

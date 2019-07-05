@@ -16,7 +16,7 @@ class MimiApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MimiApplication)
-            modules(listOf(repositoryModule, networkModule, schedulerProviders, artistsModule, artistModule))
+            modules(listOf(repositoryModule, networkModule, schedulerProviders, artistsModule, artistModule, playerModule))
         }
     }
 

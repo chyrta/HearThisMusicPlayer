@@ -29,6 +29,11 @@ object ProjectDependencies {
     val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
     val supportLegacy = "androidx.legacy:legacy-support-v4:${Versions.supportLegacy}"
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    val mockitoKotlin = "com.nhaarman:mockito-kotlin:${Versions.mockitoKotlin}"
+    val mockito = "org.mockito:mockito-all:${Versions.mockito}"
+    val hamcrest = "org.hamcrest:hamcrest-all:${Versions.hamcrest}"
+    val androidTestRunner = "com.android.support.test:runner:${Versions.androidTestRunner}"
+    val espresso = "com.android.support.test.espresso:espresso-core:${Versions.espresso}"
 }
 
 object Versions {
@@ -60,5 +65,9 @@ object Versions {
     val koin = "2.0.1"
     val junit = "4.12"
     val timber = "4.7.1"
-
+    val mockito = "1.10.19"
+    val mockitoKotlin = "1.5.0"
+    val androidTestRunner = "1.0.2"
+    val hamcrest = "1.3"
+    val espresso = "3.0.2"
 }

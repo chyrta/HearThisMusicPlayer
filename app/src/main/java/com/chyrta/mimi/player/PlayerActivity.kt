@@ -10,14 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.chyrta.mimi.R
 import dm.audiostreamer.AudioStreamingManager
+import dm.audiostreamer.AudioStreamingService
 import dm.audiostreamer.CurrentSessionCallback
 import dm.audiostreamer.MediaMetaData
+import org.koin.android.ext.android.inject
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 class PlayerActivity : AppCompatActivity(), CurrentSessionCallback, SeekBar.OnSeekBarChangeListener {
 
-    private var streamingManager: AudioStreamingManager? = null
+    private val streamingManager: AudioStreamingManager by inject()
     private var currentSong: MediaMetaData? = null
     private var draggingScrubber: Boolean = false
 
@@ -160,7 +162,6 @@ class PlayerActivity : AppCompatActivity(), CurrentSessionCallback, SeekBar.OnSe
     }
 
     private fun configureAudioStreaming() {
-        streamingManager = AudioStreamingManager.getInstance(this)
         streamingManager?.setShowPlayerNotification(true)
         streamingManager?.setPendingIntentAct(getNotificationPendingIntent())
     }

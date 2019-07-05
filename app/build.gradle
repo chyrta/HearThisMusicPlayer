@@ -53,7 +53,10 @@ dependencies {
     implementation ProjectDependencies.audioStreamer
     implementation ProjectDependencies.timber
     annotationProcessor ProjectDependencies.glideCompiler
+    testImplementation ProjectDependencies.mockitoKotlin
     testImplementation ProjectDependencies.junit
+    testImplementation ProjectDependencies.mockito
+    testImplementation ProjectDependencies.hamcrest
     ktlint ProjectDependencies.ktlint
 }
 
