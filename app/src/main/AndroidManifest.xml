@@ -1,10 +1,48 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.chyrta.mimi">
+    package="com.chyrta.mimi">
 
-    <application android:allowBackup="true"
-                 android:label="@string/app_name"
-                 android:icon="@mipmap/ic_launcher"
-                 android:roundIcon="@mipmap/ic_launcher_round"
-                 android:supportsRtl="true"
-                 android:theme="@style/AppTheme"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".MimiApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".artists.ArtistsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".artist.ArtistActivity" />
+        <activity
+            android:name=".player.PlayerActivity"
+            android:launchMode="singleTask" />
+
+        <service
+            android:name="dm.audiostreamer.AudioStreamingService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver android:name="dm.audiostreamer.AudioStreamingReceiver">
+            <intent-filter>
+                <action android:name="dm.audiostreamer.close" />
+                <action android:name="dm.audiostreamer.pause" />
+                <action android:name="dm.audiostreamer.next" />
+                <action android:name="dm.audiostreamer.play" />
+                <action android:name="dm.audiostreamer.previous" />
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
 </manifest>
