@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Mimi Code Challenge App</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+    <string name="top_artists">Top Artists</string>
+    <string name="player">Player</string>
 </resources>
